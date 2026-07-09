@@ -8,7 +8,7 @@ package_group(
         # The application package.
         "//app",
         # All other modules.
-        "//modules/...",
+        "//Features/...",
     ],
 )
 
