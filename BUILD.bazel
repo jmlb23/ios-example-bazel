@@ -8,37 +8,8 @@ load(
 
 xcodeproj(
     name = "xcodeproj",
-    project_name = "App",
+    project_name = "MarvelApp",
     top_level_targets = [
-        top_level_target(
-            "//app",
-            target_environments = ["simulator"],
-        ),
-        top_level_target(
-            "//modules/API:APITests",
-            target_environments = ["simulator"],
-        ),
-        top_level_target(
-            "//modules/Models:ModelsTests",
-            target_environments = ["simulator"],
-        ),
-    ],
-)
-
-# tools
-
-genrule(
-    name = "lint",
-    srcs = [],
-    outs = ["lint.sh"],
-    cmd = """
-echo "set -e" > "$@"
-echo "./$(location @buildifier_prebuilt//:buildifier) -lint fix -mode fix -r \\$$BUILD_WORKSPACE_DIRECTORY" >> "$@"
-echo "./$(location @SwiftLint//:swiftlint) --fix \\$$BUILD_WORKSPACE_DIRECTORY" >> "$@"
-""",
-    executable = True,
-    tools = [
-        "@SwiftLint//:swiftlint",
-        "@buildifier_prebuilt//:buildifier",
+        "//app:app",
     ],
 )
