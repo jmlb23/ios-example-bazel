@@ -19,7 +19,6 @@ swift_library(
     data = [":PreviewContent"],
     module_name = "app",
     deps = [
-        "//Features/API:APILib",
         "//Features/Character:CharacterLib",
     ],
 )
