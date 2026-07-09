@@ -9,3 +9,9 @@ public struct CharacterView : View {
     }
 }
 
+
+public struct CharacterViewPreview : PreviewProvider {
+    static public var previews: some View {
+        CharacterView()
+    }
+}
