@@ -5,9 +5,7 @@ package_group(
         "@rules_xcodeproj//xcodeproj:generated",
     ],
     packages = [
-        # The application package.
         "//app",
-        # All other modules.
         "//Features/...",
     ],
 )

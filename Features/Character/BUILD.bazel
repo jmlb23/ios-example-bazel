@@ -1,0 +1,36 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_unit_test")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+load("//tools:shared.bzl", "versions")
+
+# Code
+
+swift_library(
+    name = "CharacterLib",
+    srcs = glob(["Sources/*.swift"]),
+    module_name = "Character",
+    visibility = ["//Features:default_library_visibility"],
+    deps = [
+    ],
+)
+
+# Tests
+
+swift_library(
+    name = "CharacterTestLib",
+    testonly = True,
+    srcs = [
+        "Tests/CharacterTests.swift",
+    ],
+    module_name = "APITests",
+    deps = [
+        ":Character",
+    ],
+)
+
+ios_unit_test(
+    name = "CharacterTests",
+    minimum_os_version = versions.minimum_ios_version,
+    runner = "//tools:default_test_runner",
+    visibility = ["//Features:default_test_visibility"],
+    deps = [":CharacterTestLib"],
+)
