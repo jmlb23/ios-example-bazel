@@ -1,0 +1,34 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_unit_test")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+# Code
+
+swift_library(
+    name = "AuthLib",
+    srcs = glob(["Sources/**/*.swift"]),
+    module_name = "Auth",
+    visibility = ["//Features:default_library_visibility"],
+    deps = [
+    ],
+)
+
+# Tests
+
+swift_library(
+    name = "AuthTestLib",
+    testonly = True,
+    srcs = [
+        "Tests/AuthTests.swift",
+    ],
+    module_name = "AuthTests",
+    deps = [
+        ":Auth",
+    ],
+)
+
+ios_unit_test(
+    name = "AuthTests",
+    minimum_os_version = "14",
+    runner = "//tools:default_test_runner",
+    visibility = ["//Features:default_test_visibility"],
+    deps = [":AuthTestLib"],
+)

@@ -18,6 +18,7 @@ swift_library(
     module_name = "app",
     deps = [
         "//Features/Character:CharacterLib",
+        "//Features/Auth:AuthLib",
     ],
 )
 

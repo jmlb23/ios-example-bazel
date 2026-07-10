@@ -1,11 +1,11 @@
 import SwiftUI
-import Character
+import Auth
 
 @main
 struct MainApp: App {
     var body: some Scene {
         WindowGroup {
-            CharacterView()
+            LoginView()
         }
     }
 }
