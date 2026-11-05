@@ -18,10 +18,6 @@ build --incompatible_disallow_empty_glob
 
 build --features=swift.use_global_module_cache
 
-# Enable indexing while building.
-build --features swift.use_global_index_store
-build --features swift.index_while_building
-
 # Since there's no way to set the deployment version for swift_{binary,test},
 # this forces all targets' minimum macOS to Github Actions macOS version.
 build --macos_minimum_os=12.6
@@ -31,7 +27,7 @@ build --macos_minimum_os=12.6
 # Explicit to use iPhone 16 (iOS 18.5) on Xcode 16.4 on the Github Actions runner.
 #
 # Docs: https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md#installed-sdks
-build --ios_simulator_version=18.5
+build --ios_simulator_version=27.1
 
 # `bazel test` tries to build everything also by default, so skip that so the
 # *_library targets in examples/... aren't built (and fail since they are

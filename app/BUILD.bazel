@@ -13,7 +13,7 @@ apple_bundle_version(
 
 swift_library(
     name = "app.library",
-    srcs = glob(["source/**/*.swift"]),
+    srcs = glob(["Sources/**/*.swift"]),
     data = [":PreviewContent"],
     module_name = "app",
     deps = [
@@ -41,7 +41,7 @@ ios_application(
         "ipad",
     ],
     infoplists = [":Info.plist"],
-    minimum_os_version = "14",
+    minimum_os_version = "15",
     resources = glob(
         [
             "Assets/Assets.xcassets/**",

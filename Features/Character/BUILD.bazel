@@ -6,9 +6,7 @@ swift_library(
     name = "CharacterLib",
     srcs = glob(["Sources/*.swift"]),
     module_name = "Character",
-    visibility = ["//Features:default_library_visibility"],
-    deps = [
-    ],
+    visibility = ["//app:__pkg__"],
 )
 
 # Tests
@@ -27,7 +25,7 @@ swift_library(
 
 ios_unit_test(
     name = "CharacterTests",
-    minimum_os_version = "14",
+    minimum_os_version = "15",
     runner = "//tools:default_test_runner",
     visibility = ["//Features:default_test_visibility"],
     deps = [":CharacterTestLib"],
