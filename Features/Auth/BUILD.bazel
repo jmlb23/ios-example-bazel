@@ -7,8 +7,6 @@ swift_library(
     srcs = glob(["Sources/**/*.swift"]),
     module_name = "Auth",
     visibility = ["//app:__pkg__"],
-    deps = [
-    ],
 )
 
 # Tests
