@@ -4,7 +4,17 @@ load(
     "xcodeproj",
 )
 
-# Xcode
+load("@sourcekit_bazel_bsp//rules:setup_sourcekit_bsp.bzl", "setup_sourcekit_bsp")
+
+setup_sourcekit_bsp(
+    name = "setup_sourcekit_bsp",
+    bazel_wrapper = "bazelisk",
+    targets = [
+        "//app:app",
+        "//Features/Character:CharacterLib",
+        "//Features/Auth:AuthLib",
+    ],
+)
 
 xcodeproj(
     name = "xcodeproj",

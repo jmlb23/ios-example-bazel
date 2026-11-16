@@ -22,5 +22,7 @@ bazel_dep(
     dev_dependency = True,
 )
 
+bazel_dep(name = "sourcekit_bazel_bsp", version = "0.8.3", repo_name = "sourcekit_bazel_bsp")
+
 non_module_dependencies = use_extension("//tools:extensions.bzl", "non_module_dependencies")
 use_repo(non_module_dependencies, "SwiftLint")
